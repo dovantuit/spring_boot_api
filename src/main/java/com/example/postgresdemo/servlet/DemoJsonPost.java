@@ -1,6 +1,4 @@
 package com.example.postgresdemo.servlet;
-
-//package stackjava.com.httpclientpost.demo;
 import java.io.IOException;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
@@ -17,8 +15,8 @@ public class DemoJsonPost {
     StringEntity entity = new StringEntity("{\"email\":\"hello@gmail.com\""
     		+ ",\"password\":\"111\""
     		+ ",\"description\":\"this is just the description\""
-    		+ ",\"full_name\":\"vuong thanh t\""
-    		+ ",\"birthday\":\"20-10-2ung019\""
+    		+ ",\"full_name\":\"do van tien\""
+    		+ ",\"birthday\":\"20-10-2019\""
     		+ ",\"title\":\"boss\"}"
     		);
     httpPost.setEntity(entity);

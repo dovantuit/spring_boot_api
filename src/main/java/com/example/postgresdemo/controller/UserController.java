@@ -20,23 +20,26 @@ import com.example.postgresdemo.repository.UserRepository;
 // defind CRUD api what to do
 @RestController
 public class UserController {
-
+	//  Annotation @Autowired. Điều này nói với Spring Boot hãy tự inject (tiêm) một instance của UserRepository vào thuộc tính này khi khởi tạo UserController.
     @Autowired
     private UserRepository userRepository;
     
     @GetMapping("/users")
     public Page<User> getUsers(Pageable pageable) {
+    	System.out.println("get ok");
         return userRepository.findAll(pageable);
     }
 
     @PostMapping("/users")
     public User createUser(@Valid @RequestBody User user) {
+    	System.out.println("post ok");
         return userRepository.save(user);
     }
 
     @PutMapping("/users/{userId}")
     public User updateUser(@PathVariable Long userId,
                                    @Valid @RequestBody User userRequest) {
+    	System.out.println("put ok");
         return userRepository.findById(userId)
                 .map(user -> {
                     user.setTitle(userRequest.getTitle());
@@ -52,6 +55,7 @@ public class UserController {
 
     @DeleteMapping("/users/{userId}")
     public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
+    	System.out.println("delete ok");
         return userRepository.findById(userId)
                 .map(user -> {
                     userRepository.delete(user);
